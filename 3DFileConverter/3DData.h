@@ -9,6 +9,7 @@ namespace FormatConverter {
 		float y;
 		float z;
 		float w;
+
 		//Simple substraction
 		Vertex operator-(const Vertex& rhs) const;
 		//Absolute size of vector
@@ -16,17 +17,22 @@ namespace FormatConverter {
 		//Cross product
 		Vertex operator*(const Vertex& rhs) const;
 	};
+
 	struct Normal {
 		float x;
 		float y;
 		float z;
+
+		//Returns the normalized version of the Normal
 		Normal unit() const;
 	};
+
 	struct Tcoord {
 		float u;
 		float v;
 		float w;
 	};
+
 	struct Face {
 		long V1;
 		long V2;
@@ -38,6 +44,7 @@ namespace FormatConverter {
 		long T2;
 		long T3;
 	};
+
 	//For faster computation during exports
 	struct CachedFace{
 		Vertex* V1;
@@ -50,6 +57,7 @@ namespace FormatConverter {
 		Tcoord* T2;
 		Tcoord* T3;
 	};
+
 	//Helper structure for triangularization
 	struct VertexData
 	{
@@ -73,6 +81,7 @@ namespace FormatConverter {
 		//Default constructor
 		//Sets cached flag to false on default
 		D3Data();
+
 		//Memory reserving constructor, if some heuristics or the concrete
 		//amount of data is known
 		D3Data(size_t vert, size_t norm, size_t tc, size_t fc);

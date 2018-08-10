@@ -19,6 +19,7 @@ namespace FormatConverter {
 		virtual ~Writer() {};
 	};
 	/*
+
 	Abstract base class for loaders.
 	Has a virtual load function that has to be overriden.
 	*/
@@ -33,10 +34,12 @@ namespace FormatConverter {
 		virtual D3Data load(std::string& path) = 0;
 		virtual ~Loader() {};
 	};
+
 	//Exception for file handling
 	class FileException : public std::exception{
 		using std::exception::exception;
 	};
+
 	//Exception for signalling invalid format
 	class InvalidFormatException : public std::exception {
 		using std::exception::exception;

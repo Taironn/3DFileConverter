@@ -6,8 +6,9 @@ namespace FormatConverter {
 	public:
 		/*
 		Throws FileException and InvalidFormatException
-		Default settings are index validity checkin,
-		which includes negative index swapping.
+		Default settings are index validity checking,
+		which includes negative index swapping and
+		no triangularization.
 		Using move semantics.
 		*/
 		virtual D3Data load(std::string& path);
@@ -24,8 +25,9 @@ namespace FormatConverter {
 
 	protected:
 
-		//Swpas negative indexes accordingly
+		//Swaps negative indexes accordingly
 		void fix_negative_indexes(D3Data& data);
+
 		/*
 		Triangulates the polygon using a simple iteration from one vertex
 		Only works for convex polygons
@@ -33,12 +35,13 @@ namespace FormatConverter {
 		String must contaion only the data chunks without the first f and space!
 		*/
 		void triangulate_polygon(D3Data& data, std::string& line);
+
 		/*
-		Separates and converts input face line into VertexDatas
+		Separates and converts an input face line into VertexDatas
 		Throws invalid_argument and out_ofrange exceptions if formatting is incorrect
-		These have to be converter to InvalidFormatExceptions outside where line number is known
-		String must contaion only the data chunks without the first f and space!
-		This method accepts face lines with not same chunks of data. If this is a problem,
+		These have to be converted to InvalidFormatExceptions outside where line number is known
+		The given string must contaion only the data chunks without the first f and space!
+		This method accepts face lines with not same tpye chunks of data. If this is a problem,
 		checking should be done.
 		*/
 		std::vector<VertexData> tokenize_obj_face_line(std::string& line);

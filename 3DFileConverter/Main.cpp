@@ -10,14 +10,13 @@ using namespace FormatConverter;
 
 int main()
 {
-	cout << "Testing converter" << endl;
+	cout << "Testing converter with an obj of a cube made from rectangles" << endl;
 	try
 	{
 		clock_t t1, t2, t3;
 		t1 = clock();
 		CheckedObjLoader ol = CheckedObjLoader();
 		D3Data inmem = ol.load(std::string("cube.obj"),true,false,true);
-		cout << "done" << endl;
 		cout << "Face count: " << inmem.faces.size() << endl;
 		t2 = clock();
 		float diff((float)t2 - (float)t1);
@@ -34,18 +33,12 @@ int main()
 		float diff2((float)t3 - (float)t2);
 		cout << "Writing time: " << diff2 / CLOCKS_PER_SEC << endl;
 
-		//string line("10 12 16 87 816 123");
-		//CheckedObjLoader ol = CheckedObjLoader();
-		//D3Data testing = D3Data();
-		//auto tst = ol.tokenize_obj_face_line(line);
-		//ol.triangulate_polygon(testing, line);
-		//cout << "valami" << endl;
 	}
 	catch (const std::exception& ex)
 	{
 		cout << ex.what() << endl;
 	}
 
-	system("pause");
+	//system("pause");
 	return 0;
 }

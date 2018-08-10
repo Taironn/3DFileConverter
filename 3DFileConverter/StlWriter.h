@@ -11,12 +11,13 @@ namespace FormatConverter {
 		Returns true on successful writing.
 		*/
 		virtual bool write(std::string& path, D3Data& data);
+
 		/*
 		Writes an stl file to the given path from the data parameter.
 		n_type specifies the normals written in the stl
 		'0' means all zero normals will be written
 		'c' means normals will be calculated by the right hand rule - this is the default
-		'a' means normals will be averaged from data - if there are no normals
+		'a' means normals will be averaged from data - if there are no normals,
 			the fall back is 'c'
 		Throws FileException if not able to open file
 		Returns true on successful writing.
