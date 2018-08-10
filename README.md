@@ -6,7 +6,8 @@
 <h1 id="dfileconverter">3DFileConverter</h1>
 <p>This is a general 3d file converter written in C++. It defines an inner structure for 3d data, and abstact classes for file loaders and writers. This version contains a wavefront obj loader and a binary stl writer.</p>
 <h2 id="data-representation">Data representation</h2>
-<p>For a loaded mesh a D3Data object is used. The data is stored as in wavefront objects. There are separate vectors for vertices, normals, texture coordinates and faces. The faces contain indexes for their data. There is a cached face vector to save time on derefering the indexes, and making usage easier.</p>
+<p>For a loaded mesh a D3Data object is used. The data is stored as in wavefront objects. There are separate vectors for vertices, normals, texture coordinates and faces. The faces contain indexes for their data. There is a cached face vector to save time on derefering the indexes, and making usage easier. These cached faces store pointers to the data structures for the face.<br>
+The representation is written only for triangles, it could be easily extended for polygons however.</p>
 <h2 id="reading-files">Reading files</h2>
 <p>Supported formats (for loading) have their own loader classes. They create a D3Data object and store the data from the given files on usage. They all inherit from Loader class, and all have a <em>load</em> function, which only needs a path parameter. The <em>load</em> function gives back the generated D3Data object.</p>
 <h2 id="writing-files">Writing files</h2>
