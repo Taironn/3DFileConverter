@@ -240,3 +240,7 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+
+# Wavefront object files to work from
+!cube.obj
+!ramus.obj
